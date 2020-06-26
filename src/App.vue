@@ -1,23 +1,5 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawerRight"
-      app
-      clipped
-      right
-    >
-      <v-list dense>
-        <v-list-item @click.stop="right = !right">
-          <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Open Temporary Drawer</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
     <v-app-bar
       app
       clipped-right
@@ -27,7 +9,7 @@
       <!--<v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>-->
       <v-toolbar-title>Toolbar</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight"></v-app-bar-nav-icon>
+      <v-icon @click.stop="right = !right">mdi-exit-to-app</v-icon>
     </v-app-bar>
 
     <v-navigation-drawer
