@@ -12,12 +12,6 @@
       <v-icon @click.stop="right = !right">mdi-exit-to-app</v-icon>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model="left"
-      fixed
-      temporary
-    ></v-navigation-drawer>
-
     <v-main>
      <!--Here-->
     </v-main>
@@ -32,29 +26,19 @@
     <v-icon @click.stop="right = !right">mdi-close</v-icon>
     </v-navigation-drawer>
 
-    <v-footer
-      app
-      color="blue-grey"
-      class="white--text"
-    >
-      <span>No Ar</span>
-      <v-spacer></v-spacer>
-      <span>&copy; 2019</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script>
-  export default {
-    props: {
-      source: String,
-    },
+  import Footer from "@/components/Footer.vue";
 
+  export default {
+    components: {
+      Footer
+    },
     data: () => ({
-      drawer: null,
-      drawerRight: null,
       right: false,
-      left: false,
     }),
   }
 </script>
