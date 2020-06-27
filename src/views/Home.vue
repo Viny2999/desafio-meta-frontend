@@ -33,8 +33,8 @@
         <v-icon style="font-size: 19px">fas fa-sliders-h</v-icon>
       </button>
 
-      <button class="button" @click.stop="right = !right">
-        <v-icon style="font-size: 19px">fas fa-user</v-icon>
+      <button class="user-button">
+        <v-icon style="font-size: 19px;color: white">fas fa-user</v-icon>
         Incluir Usuário
       </button>
 
@@ -48,7 +48,18 @@
     <v-main 
       style="background-color: #e0e0e0"
     >
-     <!--Here-->
+      <!--Here-->
+      <div>
+      <span v-if="loading">Loading…</span>
+        <ul v-else>
+          <li
+            v-for="user in users"
+            :key="user.usuario"
+          >
+            <h1>{{ user.usuario }}</h1>
+          </li>
+        </ul>
+      </div>
     </v-main>
 
     <v-navigation-drawer
@@ -77,18 +88,37 @@
   import Footer from "@/components/Footer.vue";
 
   export default {
+    data () {
+      return {
+        loading: false,
+        right: false,
+      }
+    },
+    computed: {
+      users () {
+        return this.$store.state.users
+      }
+    },
+    created () {
+      this.loading = true
+      this.$store.dispatch('fetchUsers')
+        .then(users => {
+          this.loading = false
+        })
+    },
     components: {
       Footer
-    },
-    data: () => ({
-      right: false,
-    }),
+    }
   }
 </script>
 
 <style lang="sass">
   .button
     background-color: white
+    border-radius: 9px
+    padding: 13px 20px
+  .user-button
+    background-color: #f00f69
     border-radius: 9px
     padding: 13px 20px
   .img 
