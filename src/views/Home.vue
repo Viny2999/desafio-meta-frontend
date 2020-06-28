@@ -48,18 +48,75 @@
     <v-main 
       style="background-color: #e0e0e0"
     >
-      <!--Here-->
-      <div>
-      <span v-if="loading">Loading…</span>
-        <ul v-else>
-          <li
-            v-for="user in users"
-            :key="user.usuario"
-          >
-            <h1>{{ user.usuario }}</h1>
-          </li>
-        </ul>
-      </div>
+      <v-card 
+        style="margin:10px"
+        height=50
+      >
+        <div class="row">
+          <div class="col-1">
+
+          </div>
+          <div class="col-1 text-center">
+            <div class="ml-2">Usuário</div>
+          </div>
+          <div class="col-3">
+            <div class="ml-2">Email</div>
+          </div>
+          <div class="col-2 text-center">
+            Data Inclusão
+          </div>
+          <div class="col-2 text-center">
+            Data Alteração
+          </div>
+          <div class="col-1">
+            <div class="ml-2">Regras</div>
+          </div>
+          <div class="col-1">
+            <div class="ml-2">Status</div>
+          </div>
+          <div class="col-1">
+            <div class="ml-2">Ações</div>
+          </div>
+        </div>
+        <v-list>
+          <v-list-item-group v-model="user" color="primary">
+            <v-list-item
+              v-for="user of users"
+              :key="user"
+            >
+              <div class="row">
+                <div class="col-1">
+                  <input type="checkbox" id="checkbox">
+                </div>
+                <div class="col-1">
+                  <div class="ml-2"> {{ user.usuario }} </div>
+                </div>
+                <div class="col-3">
+                 {{ user.email }}
+                </div>
+                <div class="col-2 text-center">
+                  {{ user.dtInclusao }}
+                </div>
+                <div class="col-2 text-center">
+                  {{ user.dtAlteracao }}
+                </div>
+                <div class="col-1 text-center">
+                  {{ user.regras }}
+                </div>
+                <div class="col-1 text-center" v-if="user.status == true" style="color: green">
+                  Ativo
+                </div>
+                <div class="col-1 text-center" v-else style="color: red">
+                  Inativo
+                </div>
+                <div class="col-1 text-center">
+                  <v-icon>fas fa-ellipsis-h</v-icon>
+                </div>
+              </div>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-card>
     </v-main>
 
     <v-navigation-drawer
