@@ -52,7 +52,7 @@
 
       <button class="add-user-button">
         <v-icon style="font-size: 15px;color: white">fas fa-user</v-icon>
-        <span class="add-user-button-text">Incluir Usuário</span>
+        <span class="add-user-button-text">INCLUIR USUÁRIO</span>
       </button>
 
       <span class="last-divider" />
@@ -66,7 +66,7 @@
       style="background-color: #e0e0e0"
     >
       <v-card 
-        style="margin:10px"
+        class="card-style"
         height=50
       >
         <div class="row">
@@ -74,25 +74,25 @@
 
           </div>
           <div class="col-1 text-center">
-            <div class="ml-2">Usuário</div>
+            <div class="ml-2 table-header">USUÁRIO</div>
           </div>
           <div class="col-3">
-            <div class="ml-2">Email</div>
+            <div class="ml-2 table-header">EMAIL</div>
           </div>
-          <div class="col-2 text-center">
-            Data Inclusão
+          <div class="col-2 text-center table-header">
+            DATA INCLUSÃO
           </div>
-          <div class="col-2 text-center">
-            Data Alteração
-          </div>
-          <div class="col-1">
-            <div class="ml-2">Regras</div>
+          <div class="col-2 text-center table-header">
+            DATA ALTERAÇÃO
           </div>
           <div class="col-1">
-            <div class="ml-2">Status</div>
+            <div class="ml-2 table-header">REGRAS</div>
           </div>
           <div class="col-1">
-            <div class="ml-2">Ações</div>
+            <div class="ml-2 table-header">STATUS</div>
+          </div>
+          <div class="col-1">
+            <div class="ml-2 table-header">AÇÕES</div>
           </div>
         </div>
         <v-list>
@@ -142,6 +142,7 @@
       right
       temporary
       width=450
+      color="#e0e0e0"
     >
       <v-app-bar
         app
@@ -156,6 +157,27 @@
           <v-icon>mdi-close</v-icon>
         </button>
       </v-app-bar>
+      <v-content>
+        <div class="filtro-top">
+          Utilize os filtros abaixo para refinar os resultados da tabela, clique no botão APLICAR para salvar as alterações.
+        </div>
+        <div class="filtro-options">
+          <v-icon>far fa-calendar-alt</v-icon>
+          <span class="filtro-text">TODAS AS DATAS DE INCLUSÃO</span>
+        </div>
+        <v-divider></v-divider>
+        <div class="filtro-options">
+          <v-icon>far fa-calendar-alt</v-icon>
+          <span class="filtro-text">TODAS AS DATAS DE ALTERAÇÕES</span>
+        </div>
+        <v-divider></v-divider>
+        <div class="filtro-options">
+          <v-icon>fas fa-toggle-on</v-icon>
+          <span class="filtro-text">ATIVOS E INATIVOS</span>
+        </div>
+        <v-divider></v-divider>
+        <button class="aplicar-button">APLICAR</button>
+      </v-content>
     </v-navigation-drawer>
 
     <Footer />
@@ -209,10 +231,11 @@
     padding: 13px 20px
   .add-user-button
     background-color: #f00f69
-    border-radius: 9px
+    border-radius: 5px
     padding: 13px 20px
   .add-user-button-text
     margin-left: 10px
+    font-size: 14px
     color: white
   .img 
     max-width: 80%
@@ -224,7 +247,7 @@
   .button-left
     background: linear-gradient(to top right, #ff0066 -2%, #ff6600 100%)
     border-radius: 30px/10px
-    padding: 2px 5px
+    padding: 5px 5px
     margin-left: 20px
   ::placeholder
     color: grey !important
@@ -248,4 +271,40 @@
     font-family: 'MuseoModerno', cursive
     font-size: 18px
     margin-left: 15px
+  .filtro-top
+    font-style: italic
+    margin-top: 40px
+    margin-left: 15px
+    margin-right: 15px
+    margin-bottom: 40px
+  .filtro-options
+    margin-top: 20px
+    margin-left: 15px
+    margin-right: 15px
+    margin-bottom: 20px
+  .filtro-text
+    margin-left: 17px
+    font-weight: bold
+    color: #f00f69
+  .aplicar-button
+    margin: 15px
+    background-color:transparent
+    border-radius:6px
+    border:1px solid #f00f69
+    display:inline-block
+    cursor:pointer
+    color:#f00f69
+    font-family:Arial
+    font-size:17px
+    font-weight:bold
+    padding:14px 175px
+    text-decoration:none
+    text-shadow:0px 1px 0px #f00f69
+  .card-style
+    margin-top: 30px
+    margin-left: 40px
+    margin-right: 40px
+  .table-header
+    font-weight: bold
+    font-size: 13px
 </style>
