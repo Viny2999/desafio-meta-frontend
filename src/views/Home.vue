@@ -106,25 +106,25 @@
                   <input type="checkbox" id="checkbox">
                 </div>
                 <div class="col-1">
-                  <div class="ml-2"> {{ user.usuario }} </div>
+                  <div class="ml-2 table-content"> {{ user.usuario }} </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3 table-content">
                  {{ user.email }}
                 </div>
-                <div class="col-2 text-center">
+                <div class="col-2 text-center table-content">
                   {{ user.dtInclusao }}
                 </div>
-                <div class="col-2 text-center">
+                <div class="col-2 text-center table-content">
                   {{ user.dtAlteracao }}
                 </div>
-                <div class="col-1 text-center">
+                <div class="col-1 text-center table-content">
                   {{ user.regras }}
                 </div>
-                <div class="col-1 text-center" v-if="user.status == true" style="color: green">
-                  Ativo
+                <div class="col-1 text-center table-content" v-if="user.status == true" style="color: green">
+                  ATIVO
                 </div>
-                <div class="col-1 text-center" v-else style="color: red">
-                  Inativo
+                <div class="col-1 text-center table-content" v-else style="color: red">
+                  INATIVO
                 </div>
                 <div class="col-1 text-center">
                   <v-icon>fas fa-ellipsis-h</v-icon>
@@ -133,6 +133,23 @@
             </v-list-item>
           </v-list-item-group>
         </v-list>
+        <div style="text-align: center;">
+          <button class="button-pagination" disable>
+            Primeiro
+          </button>
+          <button class="button-pagination" disable>
+            Anterior
+          </button>
+          <button class="button-pagination pagination-center" disable>
+            1
+          </button>
+          <button class="button-pagination" disable>
+            Próxima
+          </button>
+          <button class="button-pagination" disable>
+            Último
+          </button>
+        </div>
       </v-card>
     </v-main>
 
@@ -229,6 +246,14 @@
     background-color: white
     border-radius: 5px
     padding: 13px 20px
+  .button-pagination
+    background-color: white
+    border-radius: 5px
+    padding: 13px 20px
+    font-size: 13px
+    margin-top: 20px
+    margin-left: 5px
+    margin-right: 5px
   .add-user-button
     background-color: #f00f69
     border-radius: 5px
@@ -307,4 +332,9 @@
   .table-header
     font-weight: bold
     font-size: 13px
+  .table-content
+    font-size: 14px
+  .pagination-center
+    background-color: #f00f69
+    color: white
 </style>
