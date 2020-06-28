@@ -12,11 +12,28 @@
 
       <span class="first-divider" />
 
+      <button class="button" v-if="!shieldButton" @click="clickShield">
+        <v-icon style="font-size: 19px;">fas fa-shield-alt</v-icon>
+      </button>
+
+      <button class="button shield-button-selected" v-if="shieldButton">
+        <v-icon style="font-size: 19px;color: white">fas fa-shield-alt</v-icon>
+      </button>
+      
+      <button class="button" v-if="!userButton" @click="clickUser">
+        <v-icon style="font-size: 19px;">fas fa-user</v-icon>
+      </button>
+      
+      <button class="button user-button-selected" v-if="userButton">
+        <v-icon style="font-size: 19px;color: white">fas fa-user</v-icon>
+      </button>
+
       <v-toolbar
         floating
         color="grey lighten-3"
         flat
         outlined
+        style="margin-left: 20px"
       >
         <v-text-field
           hide-details
@@ -29,12 +46,12 @@
       </v-toolbar>
       <v-spacer></v-spacer>
 
-      <button class="button" @click.stop="right = !right">
-        <v-icon style="font-size: 19px">fas fa-sliders-h</v-icon>
+      <button class="button" style="margin-right:8px" @click.stop="right = !right">
+        <v-icon style="font-size: 19px;">fas fa-sliders-h</v-icon>
       </button>
 
-      <button class="user-button">
-        <v-icon style="font-size: 19px;color: white">fas fa-user</v-icon>
+      <button class="add-user-button">
+        <v-icon style="font-size: 15px;color: white">fas fa-user</v-icon>
         Incluir Usuário
       </button>
 
@@ -149,6 +166,18 @@
       return {
         loading: false,
         right: false,
+        userButton: true,
+        shieldButton:false
+      }
+    },
+    methods: {
+      clickUser() {
+        this.userButton = true
+        this.shieldButton = false
+      },
+      clickShield() {
+        this.shieldButton = true
+        this.userButton = false
       }
     },
     computed: {
@@ -172,15 +201,19 @@
 <style lang="sass">
   .button
     background-color: white
-    border-radius: 9px
+    border-radius: 5px
     padding: 13px 20px
-  .user-button
+  .add-user-button
     background-color: #f00f69
     border-radius: 9px
     padding: 13px 20px
   .img 
     max-width: 80%
     height: auto
+  .shield-button-selected
+    background: linear-gradient(to top right, #ff0066 -2%, #ff6600 100%)
+  .user-button-selected
+    background: linear-gradient(to top right, #ff0066 -2%, #ff6600 100%)
   .button-left
     background: linear-gradient(to top right, #ff0066 -2%, #ff6600 100%)
     border-radius: 30px/10px
@@ -193,7 +226,7 @@
     width: 2px
     background-color: grey
     margin-left: 2%
-    margin-right: 1%
+    margin-right: 2%
     height: 1.4em
   .last-divider 
     display: inline-block
