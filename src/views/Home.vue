@@ -52,7 +52,7 @@
 
       <button class="add-user-button">
         <v-icon style="font-size: 15px;color: white">fas fa-user</v-icon>
-        Incluir Usuário
+        <span class="add-user-button-text">Incluir Usuário</span>
       </button>
 
       <span class="last-divider" />
@@ -149,8 +149,12 @@
         color="grey lighten-3"
         height=90
       >
-        Filtros
-        <v-icon @click.stop="right = !right">mdi-close</v-icon>
+        <v-icon style="font-size: 19px;">fas fa-sliders-h</v-icon>
+        <span class="filtros">FILTROS</span>
+        <v-spacer></v-spacer>
+        <button class="button" @click.stop="right = !right">
+          <v-icon>mdi-close</v-icon>
+        </button>
       </v-app-bar>
     </v-navigation-drawer>
 
@@ -207,6 +211,9 @@
     background-color: #f00f69
     border-radius: 9px
     padding: 13px 20px
+  .add-user-button-text
+    margin-left: 10px
+    color: white
   .img 
     max-width: 80%
     height: auto
@@ -237,4 +244,8 @@
     height: 1.4em
   .icons
     margin-left: 1%
+  .filtros
+    font-family: 'MuseoModerno', cursive
+    font-size: 18px
+    margin-left: 15px
 </style>
