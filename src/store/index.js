@@ -13,7 +13,6 @@ export default new Vuex.Store({
       state.users = users
     }
   },
-
   actions: {
     fetchUsers ({ commit }) {
       return client

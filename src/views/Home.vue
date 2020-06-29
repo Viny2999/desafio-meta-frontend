@@ -231,9 +231,7 @@
     created () {
       this.loading = true
       this.$store.dispatch('fetchUsers')
-        .then(users => {
-          this.loading = false
-        })
+        .then(users => {})
     },
     components: {
       Footer

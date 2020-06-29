@@ -51,7 +51,7 @@
           6: 'Sábado'
         }
 
-        this.dia = dias[new Date().getDay()];
+        return this.dia = dias[new Date().getDay()];
       },
       getDate: function () {
         const date = new Date();
@@ -75,7 +75,7 @@
       },
       getHours: function () {
         const cd = new Date();
-        this.hora = this.zeroPadding(cd.getHours(), 2) + ':' + this.zeroPadding(cd.getMinutes(), 2);
+        return this.hora = this.zeroPadding(cd.getHours(), 2) + ':' + this.zeroPadding(cd.getMinutes(), 2);
       },
       getHoursPrograma: function () {
         const cd = new Date();
