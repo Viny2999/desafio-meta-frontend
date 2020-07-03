@@ -217,10 +217,20 @@
       clickUser() {
         this.userButton = true
         this.shieldButton = false
+
+        return {
+          userButton: this.userButton,
+          shieldButton: this.shieldButton
+        }
       },
       clickShield() {
         this.shieldButton = true
         this.userButton = false
+
+        return {
+          userButton: this.userButton,
+          shieldButton: this.shieldButton
+        }
       }
     },
     computed: {
